@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\bannerController;
 use App\Http\Controllers\movieController;
+use App\Http\Controllers\paymentController;
 
 Route::get('/', function () {
 
@@ -12,6 +13,12 @@ Route::get('/', function () {
 Route::controller(movieController::class)->group(function(){
     Route::get('/',  'home')->name('home'); 
     Route::get('/buymovie/{id}',  'buymovie')->name('buymovie'); 
+
+});
+
+Route::controller(paymentController::class)->group(function(){
+    Route::post('response',  'response')->name('response'); 
+   
 
 });
 Route::group(['prefix' => 'banner'], function () {
