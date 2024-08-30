@@ -1,0 +1,59 @@
+.elementor-14024 .elementor-element.elementor-element-0ef3859:not(.elementor-motion-effects-element-type-background),
+.elementor-14024 .elementor-element.elementor-element-0ef3859>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+    background-color: #141414;
+}
+
+.elementor-14024 .elementor-element.elementor-element-0ef3859 {
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    padding: 3em 0em 0em 0em;
+}
+
+.elementor-14024 .elementor-element.elementor-element-0ef3859>.elementor-background-overlay {
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.elementor-14024 .elementor-element.elementor-element-8e51888>.elementor-widget-wrap>.elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute) {
+    margin-bottom: 0px;
+}
+
+.elementor-14024 .elementor-element.elementor-element-8e51888>.elementor-element-populated {
+    margin: 0px 0px 0px 0px;
+    --e-column-margin-right: 0px;
+    --e-column-margin-left: 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+.elementor-14024 .elementor-element.elementor-element-a82556f>.elementor-widget-wrap>.elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute) {
+    margin-bottom: 0px;
+}
+
+.elementor-14024 .elementor-element.elementor-element-a82556f>.elementor-element-populated {
+    margin: 0px 0px 0px 0px;
+    --e-column-margin-right: 0px;
+    --e-column-margin-left: 0px;
+    padding: 0em 0em 0em 2em;
+}
+
+.elementor-14024 .elementor-element.elementor-element-a8718d0 .widget-logo .logo_image {
+    width: 10em;
+}
+
+.elementor-14024 .elementor-element.elementor-element-a8718d0 {
+    text-align: left;
+}
+
+.elementor-14024 .elementor-element.elementor-element-ae58c4f {
+    margin-top: 3em;
+    margin-bottom: 0em;
+}
+
+.elementor-14024 .elementor-element.elementor-element-a7da485>.elementor-widget-wrap>.elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute) {
+    margin-bottom: 0px;
+}
+
+.elementor-14024 .elementor-element.elementor-element-a7da485>.elementor-element-populated {
+    margin: 0px 0px 0px 0px;
+    --e-column-margin-right: 0px;
+    --e-column-margin-left: 0px;
+    padding: 0px 0px 0px 0px;
+}
