@@ -36,4 +36,12 @@ class movieController extends Controller
         return view('paymentrefrence',compact('moviedetails','order'));
 
     }
+
+    public function watchtrailer(Request $request){
+        $movieid = $request->id;
+        $trailers = Movie::with('bannerimages')->find($movieid);
+        // dd($trailers);
+        return view('trailers',compact('trailers'));
+
+    }
 }

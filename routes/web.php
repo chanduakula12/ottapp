@@ -13,6 +13,7 @@ Route::get('/', function () {
 Route::controller(movieController::class)->group(function(){
     Route::get('/',  'home')->name('home'); 
     Route::get('/buymovie/{id}',  'buymovie')->name('buymovie'); 
+    Route::get('/watchtrailer/{id}',  'watchtrailer')->name('watchtrailer'); 
 
 });
 
@@ -29,6 +30,8 @@ Route::group(['prefix' => 'banner'], function () {
     });
 
 });
+
+
 
 Route::get('product',[RazorpayController::class,'index']);
 Route::post('razorpay-payment',[RazorpayController::class,'store'])->name('razorpay.payment.store');
