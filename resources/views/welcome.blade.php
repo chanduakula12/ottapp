@@ -413,6 +413,15 @@
     <!-- #masthead -->
 
     <div class="site-content-contain">
+                  <!-- success message -->
+            
+                  @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
+                        
+      <!-- success message -->
         <div id="content" class="site-content">
             <div data-elementor-type="wp-page" data-elementor-id="19238" class="elementor elementor-19238">
                 <div class="elementor-section elementor-top-section elementor-element elementor-element-4e632323 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="4e632323" data-element_type="section">
