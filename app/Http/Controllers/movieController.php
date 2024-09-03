@@ -16,8 +16,10 @@ class movieController extends Controller
         ->where('is_active',1)
         ->where('is_banner',1)
         ->get();  
-       
-         return view('welcome',compact('bannerimages'));
+        $movies =  movie::with(['bannerimages','moviegeners.moviegenersnames'])
+        ->where('is_active',1)
+        ->get();
+         return view('welcome',compact('bannerimages', 'movies'));
     }
    
 
