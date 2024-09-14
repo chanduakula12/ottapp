@@ -485,7 +485,7 @@
                                                                 </div>
 
                                                                 <div class="col-lg-5 col-md-12 trailor-video iq-slider d-none d-lg-block">
-                                                                    <a href="#" class="video-open playbtn">
+                                                                    <a href="{{ route('watchtrailer', ['id' => $images->id]) }}" class="video-open playbtn">
 												<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
 													<polygon class='triangle' fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="73.5,62.5 148.5,105.8 73.5,149.1 " />
 													<circle class='circle' fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3" />
@@ -593,7 +593,7 @@
                                                         </div>
 
                                                         <ul data-nav="true" data-items="6" data-items-laptop="3" data-items-tab="2" data-items-mobile="2" data-items-mobile-sm="2" data-autoplay="true" data-autoplay-speed="5000" data-loop="true" data-speed="300" class="iq-rtl-direction iq-arrow-2 favorites-slider list-grid list-inline row p-0 mb-0">
-                                                        @foreach($movies as $movie)    
+                                                        @foreach($movies as $movie)  
                                                         <li class="slide-items slick-slide slick-current slick-active first" tabindex="0" style="width: 369px;" data-slick-index="4" aria-hidden="false">
                                                                 <div class="block-images position-relative">
                                                                     <div class="img-box">
@@ -657,6 +657,7 @@
 
                                                         <ul data-nav="true" data-items="6" data-items-laptop="3" data-items-tab="2" data-items-mobile="2" data-items-mobile-sm="2" data-autoplay="true" data-autoplay-speed="5000" data-loop="true" data-speed="300" class="iq-rtl-direction iq-arrow-2 favorites-slider list-grid list-inline row p-0 mb-0">
                                                         @foreach($movies as $movie)    
+                
                                                         <li class="slide-items slick-slide slick-current slick-active first" tabindex="0" style="width: 369px;" data-slick-index="4" aria-hidden="false">
                                                                 <div class="block-images position-relative">
                                                                     <div class="img-box">

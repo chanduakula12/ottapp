@@ -19,6 +19,7 @@ class movieController extends Controller
         $movies =  movie::with(['bannerimages','moviegeners.moviegenersnames'])
         ->where('is_active',1)
         ->get();
+        // dd($movies);
          return view('welcome',compact('bannerimages', 'movies'));
     }
    
@@ -36,6 +37,14 @@ class movieController extends Controller
         $id = $request->id;
         $moviedetails = movie::with('bannerimages')->find($id);
         return view('paymentrefrence',compact('moviedetails','order'));
+
+    }
+
+    public function watchtrailer(Request $request){
+        $movieid = $request->id;
+        $trailers = Movie::with('bannerimages')->find($movieid);
+        // dd($trailers);
+        return view('trailers',compact('trailers'));
 
     }
 }
