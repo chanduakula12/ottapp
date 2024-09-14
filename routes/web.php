@@ -16,6 +16,8 @@ Route::controller(movieController::class)->group(function(){
 
 });
 
+Route::get('login', [bannerController::class, 'loginpage'])->name('loginpage');
+
 Route::controller(paymentController::class)->group(function(){
     Route::post('response',  'response')->name('response'); 
    

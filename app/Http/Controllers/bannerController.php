@@ -8,6 +8,9 @@ use App\Models\video;
 
 class bannerController extends Controller
 {
+    public function loginpage(){
+        return view('login');
+    }
     public function create(){
         return view('upload');
     }

@@ -231,36 +231,14 @@
                 <div class="elementor-widget-container">
                     <div class="iq-users-settings user-btn nav-item nav-icon header-user-rights iq-usermenu-dropdown">
                         <div class="nav-item nav-icon header-user-rights">
-                            <a href="javascript:void(0);" class="iq-user-dropdown search-toggle p-0 d-flex align-items-center active" data-toggle="search-toggle" id="btn-user-list">
+                            <a href="{{route('loginpage')}}" class="iq-user-dropdown search-toggle p-0 d-flex align-items-center active" data-toggle="search-toggle" id="btn-user-list">
                 <span class="iq-avatar style-1 " ><i aria-hidden="true" alt="user" class="far fa-user"></i></span>            </a>
 
                             <div class="iq-sub-dropdown iq-user-dropdown-style-2">
                                 <div class="iq-card shadow-none m-0">
                                     <div class="iq-card-body">
 
-                                        <a href="../pages/Register.html" class="iq-list-link iq-sub-card">
-                                            <div class="media align-items-center">
-                                                <div class="right-icon">
-                                                    <i aria-hidden="true" class="iq-user-list-icon fas fa-user-plus" fill="white"></i> </div>
-
-                                                <div class="media-body">
-                                                    <h6 class="m-0 ">
-                                                        Register </h6>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                        <a href="../pages/login.html" class="iq-list-link iq-sub-card">
-                                            <div class="media align-items-center">
-                                                <div class="right-icon">
-                                                    <i aria-hidden="true" class="iq-user-list-icon fas fa-sign-in-alt" fill="white"></i> </div>
-
-                                                <div class="media-body">
-                                                    <h6 class="m-0 ">
-                                                        Login </h6>
-                                                </div>
-                                            </div>
-                                        </a>
+                                      
                                     </div>
                                 </div>
                             </div>
