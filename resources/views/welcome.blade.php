@@ -615,7 +615,7 @@
                                                         </div>
 
                                                         <ul data-nav="true" data-items="6" data-items-laptop="3" data-items-tab="2" data-items-mobile="2" data-items-mobile-sm="2" data-autoplay="true" data-autoplay-speed="5000" data-loop="true" data-speed="300" class="iq-rtl-direction iq-arrow-2 favorites-slider list-grid list-inline row p-0 mb-0">
-                                                        @foreach($movies as $movie)    
+                                                        @foreach($movies as $movie)  
                                                         <li class="slide-items slick-slide slick-current slick-active first" tabindex="0" style="width: 369px;" data-slick-index="4" aria-hidden="false">
                                                                 <div class="block-images position-relative">
                                                                     <div class="img-box">
@@ -679,6 +679,7 @@
 
                                                         <ul data-nav="true" data-items="6" data-items-laptop="3" data-items-tab="2" data-items-mobile="2" data-items-mobile-sm="2" data-autoplay="true" data-autoplay-speed="5000" data-loop="true" data-speed="300" class="iq-rtl-direction iq-arrow-2 favorites-slider list-grid list-inline row p-0 mb-0">
                                                         @foreach($movies as $movie)    
+                
                                                         <li class="slide-items slick-slide slick-current slick-active first" tabindex="0" style="width: 369px;" data-slick-index="4" aria-hidden="false">
                                                                 <div class="block-images position-relative">
                                                                     <div class="img-box">

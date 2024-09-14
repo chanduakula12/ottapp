@@ -19,6 +19,7 @@ class movieController extends Controller
         $movies =  movie::with(['bannerimages','moviegeners.moviegenersnames'])
         ->where('is_active',1)
         ->get();
+        // dd($movies);
          return view('welcome',compact('bannerimages', 'movies'));
     }
    
