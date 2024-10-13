@@ -755,24 +755,25 @@ form#loginform input[type=password], form#loginform input[type=text] {
            <input type="password" name="password" id="user_pass" autocomplete="current-password" spellcheck="false" class="input" value="" size="20"><i class="password_toogle show_password fas fa-eye"></i>
         </p>
         <div class="custom-links mt-0">
-           <a href="../pages/forgetpassword.html " class="iq-sub-card setting-dropdown">
+           <!-- <a href="../pages/forgetpassword.html " class="iq-sub-card setting-dropdown">
            <h6 class="mb-0 ">Forgot Password?</h6>
-           </a>
+           </a> -->
         </div><p class="login-remember"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Remember Me</label></p><p class="login-submit">
            <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary" value="Log In">
            <input type="hidden" name="redirect_to" value="">
         </p>
            <div class="login-form-bottom">
-           <div class="d-flex justify-content-center align-items-center links">New to Streamit?
-           <a href="../pages/Register.html" class="iq-sub-card setting-dropdown  ml-2">
+           <!-- <div class="d-flex justify-content-center align-items-center links">New to Streamit? -->
+           <!-- <a href="../pages/Register.html" class="iq-sub-card setting-dropdown  ml-2">
            <h6 class="mb-0 "> Sign Up</h6>
-           </a>
+           </a> -->
            </div>
-        <div class="css_prefix-seperator">
+        <!-- <div class="css_prefix-seperator">
            <span class="line-1"></span>
            <span class="or-section">OR </span>
            <span class="line-2"></span>
-        </div><div class="css_prefix-social-login-section"><div class="mo-openid-app-icons">
+        </div> -->
+        <div class="css_prefix-social-login-section"><div class="mo-openid-app-icons">
                <p style="color:#000000; width: fit-content;"> </p><a class=" login-button " title="  Google" onclick="moOpenIdLogin('google','true');" style="cursor: pointer;"><i style="margin-top: 10px; background: rgb(219, 68, 55); text-align: center; padding-top: 8px; color: white; width: 45px !important; height: 45px !important; margin-left: 8px !important; font-size: 29px !important; cursor: pointer;" class="fab fa-google  mo_btn-mo mo_openid-login-button login-button mo_btn_transform_i  circle"></i></a><a class=" login-button" title="  linkedin" onclick="moOpenIdLogin('linkedin','true');" style="cursor: pointer;"><i style="margin-top: 10px; background: rgb(0, 123, 182); text-align: center; padding-top: 8px; color: white; width: 45px !important; height: 45px !important; margin-left: 8px !important; font-size: 29px !important; cursor: pointer;" class="fab fa-linkedin  mo_btn-mo mo_openid-login-button login-button mo_btn_transform_i  circle"></i></a><a class=" login-button" title="  amazon" onclick="moOpenIdLogin('amazon','true');" style="cursor: pointer;"><i style="margin-top: 10px; background: rgb(255, 153, 0); text-align: center; padding-top: 8px; color: white; width: 45px !important; height: 45px !important; margin-left: 8px !important; font-size: 29px !important; cursor: pointer;" class="fab fa-amazon  mo_btn-mo mo_openid-login-button login-button mo_btn_transform_i  circle"></i></a></div> <br></div></div></form>	<hr>
   <p class="pmpro_actions_nav">
         </p> <!-- end pmpro_actions_nav -->

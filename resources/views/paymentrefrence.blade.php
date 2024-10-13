@@ -146,10 +146,11 @@
         <link rel="stylesheet" href="{{ asset('style.css') }}">
     </head>
         <style>
-            body {
-            padding: 5px;
-            background-image: url('http://127.0.0.1:8000/movies/1/home1.webp');
-        }
+ body {
+        padding: 5px;
+        background-image: url('{{ asset($moviedetails->bannerimages->banner_image) }}');
+        background-size: cover;
+    }
         </style>
     <body>
         <div class="container d-lg-flex mt-3 mb-3">
@@ -158,7 +159,7 @@
                 <div class="box-inner-1 pb-3 mb-3">
                     <div class="d-flex justify-content-between mb-3 userdetails">
                         <p class="fw-bold text-danger">{{ $moviedetails->title }}</p>
-                        <p class="fw-lighter"><span class="fas fa-dollar-sign">{{ $moviedetails->price }}</span></p>
+                        <p class="fw-lighter">Rent Rs. {{ $moviedetails->price }} / -</p>
                     </div>
                     <div class="container">
                         <div class="bannerimage">
@@ -202,7 +203,8 @@ By continuing, I agree to  Terms and Conditions and express my consent to comple
                                 <div class="d-flex flex-column dis">
                                     <div class="d-flex align-items-center justify-content-between mb-2">
                                         <p class="fw-bold">Total</p>
-                                        <p class="fw-bold"><span class="fas fa-dollar-sign">{{ $moviedetails->price }}</span></p>
+                                        
+                                        <p class="fw-bold">Rent Rs. {{ $moviedetails->price }} / -</p>
                                     </div>
                                         <!--razor payment -->
                                         
