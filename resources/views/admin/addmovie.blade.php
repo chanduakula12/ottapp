@@ -81,205 +81,159 @@
 </head>
 
 <body class="inner_page contact_page">
-    <div class="full_container">
-        <div class="inner_container">
-            <!-- Sidebar  -->
-            @include('admin.sidebar')
-            <!-- end sidebar -->
-            <!-- right content -->
-            <div id="content">
-                <!-- topbar -->
-                @include('admin.navbar')
-                <!-- end topbar -->
-                <!-- dashboard inner -->
-                <div class="midde_cont">
-                    <div class="container-fluid">
-                        <div class="row column_title">
-                            <div class="col-md-12">
-                                <div class="page_title">
-                                    <h2>Movies</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- row -->
-                        <div class="row column1">
-                            <div class="col-md-12">
-                                <div class="white_shd full margin_bottom_30">
-                                    <div class="full graph_head">
-
-                                    </div>
-                                    <div class="full price_table padding_infor_info">
-
-
-
-
-                                        <form method="post" action="{{route('admin.uploadmovie')}}">
-                                            <!-- 2 column grid layout with text inputs for the first and last names -->
-                                            <div class="row mb-4">
-                                                <div class="col">
-                                                    <div data-mdb-input-init class="form-outline">
-                                                        <label class="form-label" for="name">Name</label>
-                                                        <input type="text" id="name" name="name" class="form-control" />
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div data-mdb-input-init class="form-outline">
-                                                        <label class="form-label" for="form6Example2">Title</label>
-                                                        <input type="text" id="form6Example2" name="title" class="form-control" />
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Text input -->
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                                <label class="form-label" for="form6Example3">Duration</label>
-                                                <input type="time" id="form6Example3" name="time" class="form-control" />
-                                            </div>
-
-                                            <!-- Text input -->
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                                <label class="form-label" for="form6Example4">Description</label>
-                                                <input type="text" id="form6Example4" name="description" class="form-control" />
-                                            </div>
-
-                                            <!-- Email input -->
-
-
-                                            <!-- Checkbox -->
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                                <label class="form-label" for="form6Example4">Geners</label>
-                                                <select class="form-multi-select" name="geners[]" multiple data-coreui-search="true">
-                                                    @foreach($geners as $gener)
-                                                    <option value="{{$gener->id}}">{{$gener->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-
-                                            <div data-mdb-input-init class="form-outline mb-4">
-
-                                                <label class="form-label" for="form6Example4">Tags</label>
-
-                                                <div class="panel panel-default">
-
-                                                    <div class="panel-body">
-
-                                                        <div id="education_fields">
-
-                                                        </div>
-                                                        <div class="col-sm-3 nopadding">
-                                                            <div class="form-group">
-
-                                                                <input type="text" class="form-control" id="Schoolname" name="Schoolname[]" value="" placeholder="Tags">
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="col-sm-3 nopadding">
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-
-                                                                    <div class="input-group-btn">
-                                                                        <button class="btn btn-success" type="button" onclick="education_fields();"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="clear"></div>
-
-                                                    </div>
-
-
-
-
-
-                                                </div>
-                                                <div class="col-sm-3 nopadding">
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="tickets" name="tickets" value="1">
-                                                        <label for="tickets">Get Tickets</label>
-                                                        <br>
-                                                        <input type="checkbox" id="buy" name="buy" value="2">
-                                                        <label for="buy">BUY NOW</label>
-                                                        <br>
-
-                                                        <div id="buynowotts">
-                                                            <label class="form-label" for="buynow">Site</label>
-                                                            <label class="form-label" for="officialsite">Site</label>
-                                                            <select class="form-control" id="mySelect" multiple style="height:100% !important">
-                                                                @foreach($otts as $ott)
-                                                                <option>{{$ott->name}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                            <div id="inputContainer"></div>
-                                                        </div>
-                                                        <input type="checkbox" id="site" name="site" value="3">
-                                                        <label for="site">OFFICAL SITE</label>
-                                                        <div id="hideofficialsite">
-                                                            <label class="form-label" for="officalsite">Site</label>
-
-                                                            <input type="text" id="officalsite" name="officalsite" class="form-control" />
-
-                                                        </div>
-                                                    </div>
-                                                  
-                                                    
-
-                                                    <input type="file" id="fileInput" multiple>
-        <div id="radioContainer" style="margin-top: 20px;"></div>
-        
-        <div class="symbol-container">
-          <label>Trailer</label>
-            <div class="add-symbol" id="addTrailerButton">+</div>
-            <div class="remove-symbol" id="removeTrailerButton">-</div>
-        </div>
-        
-        <div id="dynamicInput"></div>
-
-        <div>
-          <label class="form-label" for="moviefile">Movie Upload</label>
-          <input type="file" id="moviefile" name="moviefile" class="form-control" />
-        </div>
-        <div>
-          <label class="form-label" for="movieimage">Movie Image</label>
-          <input type="file" id="movieimage" name="movieimage" class="form-control" />
-        </div>
-
-        <!-- Submit button -->
-         <div>
-         <input type="submit" id="submit" name="submit" class="form-control" value="Submit" />
-
-  </div>
-
-
-                                                </div>
-
-                                        </form>
-
-                                        
-
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end row -->
-                            </div>
-                            <!-- footer -->
-                            <div class="container-fluid">
-                                <div class="footer">
-                                    <p>Copyright © 2018 Designed by html.design. All rights reserved.
-                                        <br>
-                                        <br> Distributed By: <a href="https://themewagon.com/">ThemeWagon</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end dashboard inner -->
-                    </div>
-                </div>
+<div class="full_container">
+<div class="inner_container">
+   <!-- Sidebar  -->
+   @include('admin.sidebar')
+   <!-- end sidebar -->
+   <!-- right content -->
+   <div id="content">
+      <!-- topbar -->
+      @include('admin.navbar')
+      <!-- end topbar -->
+      <!-- dashboard inner -->
+      <div class="midde_cont">
+         <div class="container-fluid">
+            <div class="row column_title">
+               <div class="col-md-12">
+                  <div class="page_title">
+                     <h2>Movies</h2>
+                  </div>
+               </div>
             </div>
-        </div>
+            <!-- row -->
+            <div class="row column1">
+               <div class="col-md-12">
+                  <div class="white_shd full margin_bottom_30">
+                     <div class="full graph_head">
+                     </div>
+                     <div class="full price_table padding_infor_info">
+                        <form method="post" action="{{route('admin.uploadmovie')}}">
+                           <!-- 2 column grid layout with text inputs for the first and last names -->
+                           <div class="row mb-4">
+                              <div class="col">
+                                 <div data-mdb-input-init class="form-outline">
+                                    <label class="form-label" for="name">Name</label>
+                                    <input type="text" id="name" name="name" class="form-control" />
+                                 </div>
+                              </div>
+                              <div class="col">
+                                 <div data-mdb-input-init class="form-outline">
+                                    <label class="form-label" for="form6Example2">Title</label>
+                                    <input type="text" id="form6Example2" name="title" class="form-control" />
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- Text input -->
+                           <div data-mdb-input-init class="form-outline mb-4">
+                              <label class="form-label" for="form6Example3">Duration</label>
+                              <input type="time" id="form6Example3" name="time" class="form-control" />
+                           </div>
+                           <!-- Text input -->
+                           <div data-mdb-input-init class="form-outline mb-4">
+                              <label class="form-label" for="form6Example4">Description</label>
+                              <input type="text" id="form6Example4" name="description" class="form-control" />
+                           </div>
+                           <!-- Email input -->
+                           <!-- Checkbox -->
+                           <div data-mdb-input-init class="form-outline mb-4">
+                              <label class="form-label" for="form6Example4">Geners</label>
+                              <select class="form-multi-select" name="geners[]" multiple data-coreui-search="true">
+                                 @foreach($geners as $gener)
+                                 <option value="{{$gener->id}}">{{$gener->name}}</option>
+                                 @endforeach
+                              </select>
+                           </div>
+                           <div data-mdb-input-init class="form-outline mb-4">
+                              <label class="form-label" for="form6Example4">Tags</label>
+                              <div class="panel panel-default">
+                                 <div class="panel-body">
+                                    <div id="education_fields">
+                                    </div>
+                                    <div class="col-sm-3 nopadding">
+                                       <div class="form-group">
+                                          <input type="text" class="form-control" id="Schoolname" name="Schoolname[]" value="" placeholder="Tags">
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3 nopadding">
+                                       <div class="form-group">
+                                          <div class="input-group">
+                                             <div class="input-group-btn">
+                                                <button class="btn btn-success" type="button" onclick="education_fields();"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-3 nopadding">
+                                 <div class="form-group">
+                                    <input type="checkbox" id="tickets" name="tickets" value="1">
+                                    <label for="tickets">Get Tickets</label>
+                                    <br>
+                                    <input type="checkbox" id="buy" name="buy" value="2">
+                                    <label for="buy">BUY NOW</label>
+                                    <br>
+                                    <div id="buynowotts">
+                                       <label class="form-label" for="buynow">Site</label>
+                                       <label class="form-label" for="officialsite">Site</label>
+                                       <select class="form-control" id="mySelect" multiple style="height:100% !important">
+                                          @foreach($otts as $ott)
+                                          <option>{{$ott->name}}</option>
+                                          @endforeach
+                                       </select>
+                                       <div id="inputContainer"></div>
+                                    </div>
+                                    <input type="checkbox" id="site" name="site" value="3">
+                                    <label for="site">OFFICAL SITE</label>
+                                    <div id="hideofficialsite">
+                                       <label class="form-label" for="officalsite">Site</label>
+                                       <input type="text" id="officalsite" name="officalsite" class="form-control" />
+                                    </div>
+                                 </div>
+                                 <input type="file" id="fileInput" multiple>
+                                 <div id="radioContainer" style="margin-top: 20px;"></div>
+                                 <div class="symbol-container">
+                                    <label>Trailer</label>
+                                    <div class="add-symbol" id="addTrailerButton">+</div>
+                                    <div class="remove-symbol" id="removeTrailerButton">-</div>
+                                 </div>
+                                 <div id="dynamicInput"></div>
+                                 <div>
+                                    <label class="form-label" for="moviefile">Movie Upload</label>
+                                    <input type="file" id="moviefile" name="moviefile" class="form-control" />
+                                 </div>
+                                 <div>
+                                    <label class="form-label" for="movieimage">Movie Image</label>
+                                    <input type="file" id="movieimage" name="movieimage" class="form-control" />
+                                 </div>
+                                 <!-- Submit button -->
+                                 <div>
+                                    <input type="submit" id="submit" name="submit" class="form-control" value="Submit" />
+                                 </div>
+                              </div>
+                        </form>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- end row -->
+               </div>
+               <!-- footer -->
+               <div class="container-fluid">
+                  <div class="footer">
+                     <p>Copyright © 2018 Designed by html.design. All rights reserved.
+                        <br>
+                        <br> Distributed By: <a href="https://themewagon.com/">ThemeWagon</a>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <!-- end dashboard inner -->
+         </div>
+      </div>
+   </div>
+</div>
         <!-- jQuery -->
         <script src="js/jquery.min.js"></script>
         <script src="js/popper.min.js"></script>

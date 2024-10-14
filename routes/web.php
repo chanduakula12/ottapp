@@ -56,5 +56,17 @@ Route::get('/admin-movies', [AdminMovieController::class, 'movies'])->name('admi
 Route::get('/admin-add-movie', [AdminMovieController::class, 'movieadd'])->name('admin.addmovie');
 Route::post('/admin-upload-movie', [AdminMovieController::class, 'uploadmovie'])->name('admin.uploadmovie');
 
+//add movies 
+Route::get('/admin-movies-order', [AdminMovieController::class, 'moviesorder'])->name('admin.moviesorder');
+Route::post('/admin-save-order', [AdminMovieController::class, 'saveorder'])->name('admin.admin-save-order');
+Route::get('/adim-homerow-list', [AdminMovieController::class, 'homerowlist'])->name('admin.adim-homerow-list');
+Route::get('/adim-homerow-movie-list/{id}', [AdminMovieController::class, 'homerowmovielist'])->name('admin.adim-homerow-movie-list');
+
+Route::get('/admin-movies-addbanner', [AdminMovieController::class, 'addmoviebanner'])->name('admin.admin-movies-addbanner');
+Route::post('/admin-movies-savebanner', [AdminMovieController::class, 'savemoviebanner'])->name('admin.admin-movies-savebanner');
+Route::get('/admin-movies-viewlist', [AdminMovieController::class, 'viewmovieslist'])->name('admin.admin-movies-viewlist');
+
+
+
 
 
