@@ -12,6 +12,8 @@
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
+
       <!-- site icon -->
       <link rel="icon" href="images/fevicon.png" type="image/png" />
       <!-- bootstrap css -->
@@ -57,7 +59,7 @@
                      <div class="row column_title">
                         <div class="col-md-12">
                            <div class="page_title">
-                              <h2>Movies</h2>
+                              <h2>Movie File</h2>
                            </div>
                         </div>
                      </div>
@@ -72,13 +74,38 @@
                                        {{ session()->get('message') }}
                                     </div>
                                  @endif
-
-                                    <form action="{{route('admin.addmovie')}}"  method="get">
-                                    <button class="btn btn-primary">Add Movie</button>
-</form>
-                                 </div>
                               </div>
-                              @include('admin.movielist')
+                              
+
+
+                              <div class="row mb-4">
+                              <form id="uploadForm">
+                                                <div class="col-md-6">
+                                                    <div data-mdb-input-init class="form-outline">
+                                                        <label class="form-label" for="name">Upload file</label>
+                                                        <input type="file" id="file" name="file" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div data-mdb-input-init class="form-outline">
+                                                    <label class="form-label" for="name">Upload</label>
+
+                                                    <button type="submit">Upload</button>
+
+                                                       
+                                                </div>
+                                              
+</div>
+                                                </div>
+                                                </form>
+                                                <div id="progress" style="display:none;">
+    <div id="progressBar" style="width: 0%; height: 20px; background: green;"></div>
+    <span id="progressText">0%</span>
+    <div id="message"></div>
+                                            </div>
+
+
+
                            </div>
                         </div>
                         <!-- end row -->
@@ -121,6 +148,58 @@
       <script src="js/custom.js"></script>
       <!-- calendar file css -->     
       <script src="js/semantic.min.js"></script>
-      <script></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+
+
+<script>
+    $(document).ready(function() {
+        $('#uploadForm').on('submit', function(e) {
+            $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+            e.preventDefault(); // Prevent the default form submission
+
+            var formData = new FormData(this);
+            $('#progress').show(); // Show the progress bar
+
+            $.ajax({
+                url: "{{ route('admin.movie.file') }}", // Your upload route
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                xhr: function() {
+                    var xhr = new window.XMLHttpRequest();
+                    xhr.upload.addEventListener("progress", function(evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = evt.loaded / evt.total;
+                            percentComplete = parseInt(percentComplete * 100);
+                            $('#progressBar').css('width', percentComplete + '%');
+                            $('#progressText').text(percentComplete + '%');
+                        }
+                    }, false);
+                    return xhr;
+                },
+                success: function(response) {
+                    alert('uploaded')
+                    // $('#message').text(response.success);
+                    // $('#progressBar').css('width', '100%');
+                    // $('#progressText').text('Upload Complete');
+                },
+                error: function(xhr, status, error) {
+                    debugger
+                    // $('#message').text('Upload failed: ' + xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
    </body>
 </html>

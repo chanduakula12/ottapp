@@ -53,6 +53,9 @@ Route::get('/home', [App\Http\Controllers\movieController::class, 'home'])->name
 
 // admin routes
 Route::get('/admin-movies', [AdminMovieController::class, 'movies'])->name('admin.movies');
+Route::get('/admin-movie-upload-file/{id?}', [AdminMovieController::class, 'moviesupload'])->name('admin.movieupload');
+Route::post('/admin-movie-upload-file-post', [AdminMovieController::class, 'moviesuploadfile'])->name('admin.movie.file');
+
 Route::get('/admin-add-movie', [AdminMovieController::class, 'movieadd'])->name('admin.addmovie');
 Route::post('/admin-upload-movie', [AdminMovieController::class, 'uploadmovie'])->name('admin.uploadmovie');
 
