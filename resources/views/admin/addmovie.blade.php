@@ -113,7 +113,9 @@
 
 
 
-                                        <form method="post" action="{{route('admin.uploadmovie')}}">
+                                        <form method="post" action="{{route('admin.uploadmovie')}}" enctype="multipart/form-data">
+                                            @csrf
+
                                             <!-- 2 column grid layout with text inputs for the first and last names -->
                                             <div class="row mb-4">
                                                 <div class="col">
@@ -130,11 +132,26 @@
                                                 </div>
                                             </div>
 
-                                            <!-- Text input -->
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                                <label class="form-label" for="form6Example3">Duration</label>
+
+                                            <div class="row mb-4">
+                                                <div class="col">
+                                                    <div data-mdb-input-init class="form-outline">
+                                                    <label class="form-label" for="form6Example3">Duration</label>
                                                 <input type="time" id="form6Example3" name="time" class="form-control" />
                                             </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div data-mdb-input-init class="form-outline">
+                                                    <label class="form-label" for="form6Example3">Price</label>
+                                                <input type="number" id="form6Example3" name="ptice" class="form-control" />
+                                           
+                                                       </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input -->
+                                            <div data-mdb-input-init class="form-outline mb-4">
+                                              </div>
 
                                             <!-- Text input -->
                                             <div data-mdb-input-init class="form-outline mb-4">
@@ -170,7 +187,7 @@
                                                         <div class="col-sm-3 nopadding">
                                                             <div class="form-group">
 
-                                                                <input type="text" class="form-control" id="Schoolname" name="Schoolname[]" value="" placeholder="Tags">
+                                                                <input type="text" class="form-control" id="Tagname" name="Tagname[]" value="" placeholder="Tags">
                                                             </div>
                                                         </div>
 
@@ -225,29 +242,24 @@
                                                   
                                                     
 
-                                                    <input type="file" id="fileInput" multiple>
         <div id="radioContainer" style="margin-top: 20px;"></div>
         
-        <div class="symbol-container">
+        <!-- <div class="symbol-container">
           <label>Trailer</label>
             <div class="add-symbol" id="addTrailerButton">+</div>
             <div class="remove-symbol" id="removeTrailerButton">-</div>
         </div>
         
-        <div id="dynamicInput"></div>
+        <div id="dynamicInput"></div> -->
 
-        <div>
-          <label class="form-label" for="moviefile">Movie Upload</label>
-          <input type="file" id="moviefile" name="moviefile" class="form-control" />
-        </div>
         <div>
           <label class="form-label" for="movieimage">Movie Image</label>
           <input type="file" id="movieimage" name="movieimage" class="form-control" />
         </div>
-
+<br>
         <!-- Submit button -->
          <div>
-         <input type="submit" id="submit" name="submit" class="form-control" value="Submit" />
+         <input type="submit" id="submit" name="submit" class="form-control" value="Upload" />
 
   </div>
 
@@ -313,7 +325,7 @@
         var divtest = document.createElement("div");
     	divtest.setAttribute("class", "form-group removeclass"+room);
     	var rdiv = 'removeclass'+room;
-        divtest.innerHTML = '<div class="col-sm-3 nopadding"><div class="form-group"> <input type="text" class="form-control" id="Schoolname" name="Schoolname[]" value="" placeholder="Tags"></div></div><div class="col-sm-3 nopadding"><div class="form-group"><div class="input-group"> <div class="input-group-btn"> <button class="btn btn-danger" type="button" onclick="remove_education_fields('+ room +');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button></div></div></div></div><div class="clear"></div>';
+        divtest.innerHTML = '<div class="col-sm-3 nopadding"><div class="form-group"> <input type="text" class="form-control" id="Tagname" name="Tagname[]" value="" placeholder="Tags"></div></div><div class="col-sm-3 nopadding"><div class="form-group"><div class="input-group"> <div class="input-group-btn"> <button class="btn btn-danger" type="button" onclick="remove_education_fields('+ room +');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button></div></div></div></div><div class="clear"></div>';
         
         objTo.appendChild(divtest)
     }
