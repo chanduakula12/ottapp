@@ -13,4 +13,8 @@ class homerowlist extends Model
     {
         return $this->hasMany(movie::class,'id', 'movie_id');
     }
+    public function movielistdatainfo()
+    {
+        return $this->hasOne(movie::class,'id', 'movie_id');
+    }
 }

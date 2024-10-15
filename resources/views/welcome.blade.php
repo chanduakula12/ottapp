@@ -285,6 +285,7 @@
               </div>
             </div>
             <!--end Modal popup-->
+            @foreach($movies as $movie)
             <div class="elementor-section elementor-top-section elementor-element elementor-element-7316c40f elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="7316c40f" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
               <div class="elementor-container elementor-column-gap-default">
                 <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-539ec769 layouts-column-align-inherit layouts-section-position-none" data-id="539ec769" data-element_type="column">
@@ -297,38 +298,12 @@
                               <div class="elementor-widget-container">
                                 <div class="iq-card-wrapper iq-ajax-content movie_cards  iqonic-lazy-load-images" data-options="" data-can-beloaded="1">
                                   <div class="iq-main-header d-flex align-items-center justify-content-between">
-                                    <h5 class="main-title"> Best Of This Year </h5>
+                                    <h5 class="main-title"> {{$movie->name ?? 'NA'}} </h5>
                                   </div>
-                                  <ul data-nav="true" data-items="6" data-items-laptop="3" data-items-tab="2" data-items-mobile="2" data-items-mobile-sm="2" data-autoplay="true" data-autoplay-speed="5000" data-loop="true" data-speed="300" class="iq-rtl-direction iq-arrow-2 favorites-slider list-grid list-inline row p-0 mb-0"> @foreach($movies as $movie) <li class="slide-items slick-slide slick-current slick-active first" tabindex="0" style="width: 369px;" data-slick-index="4" aria-hidden="false">
-                                      <div class="block-images position-relative">
-                                        <div class="img-box">
-                                          <a href="{{ route('watchtrailer', ['id' => $movie->id]) }}" tabindex="0"></a>
-                                          <img src="{{ asset($movie->bannerimages->banner_image) }}" class="img-fluid  iqonic-lazy" alt="Fast &amp; Furious" data-srcset="{{ asset($movie->bannerimages->banner_image) }}" srcset="{{ asset($movie->bannerimages->banner_image) }}">
-                                        </div>
-                                        <!-- 2nd -->
-                                        <div class="card-description with-transition">
-                                          <div class="cart-content">
-                                            <div class="content-left">
-                                              <h5 class="iq-title">
-                                                <a href="{{ route('watchtrailer', ['id' => $movie->id]) }}" tabindex="0">
-                                                  {{$movie->title}} </a>
-                                              </h5>
-                                              <div class="movie-time d-flex align-items-center my-2">
-                                                <span class="movie-time-text font-normal">{{$movie->watch_hours}}</span>
-                                              </div>
-                                            </div>
-                                            <div class="watchlist">
-                                              <a class="watch-list-not" href="../pages/login.html" tabindex="0">
-                                                <span>
-                                                  <i class="mr-1 fas fa-plus"></i>
-                                                </span>
-                                                <span class="watchlist-label"> Watchlist </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </li> @endforeach </ul>
+                                  <ul data-nav="true" data-items="6" data-items-laptop="3" data-items-tab="2" data-items-mobile="2" data-items-mobile-sm="2" data-autoplay="true" data-autoplay-speed="5000" data-loop="true" data-speed="300" class="iq-rtl-direction iq-arrow-2 favorites-slider list-grid list-inline row p-0 mb-0">
+                                 
+                                  @include('movieslist')
+                                  </ul>
                                 </div>
                                 <div class="loader-wheel-container">
                                   <input class="action" name="action" value="movie_cards" type="hidden">
@@ -344,57 +319,7 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="hf-elementor-layout elementor-element elementor-element-d7aba3e elementor-widget elementor-widget-iqonic_movie_cards" data-id="d7aba3e" data-element_type="widget" data-widget_type="iqonic_movie_cards.default">
-                              <div class="elementor-widget-container">
-                                <div class="iq-card-wrapper iq-ajax-content movie_cards  iqonic-lazy-load-images" data-options="" data-can-beloaded="1">
-                                  <div class="iq-main-header d-flex align-items-center justify-content-between">
-                                    <h5 class="main-title"> Most Viewed </h5>
-                                  </div>
-                                  <ul data-nav="true" data-items="6" data-items-laptop="3" data-items-tab="2" data-items-mobile="2" data-items-mobile-sm="2" data-autoplay="true" data-autoplay-speed="5000" data-loop="true" data-speed="300" class="iq-rtl-direction iq-arrow-2 favorites-slider list-grid list-inline row p-0 mb-0"> @foreach($movies as $movie) <li class="slide-items slick-slide slick-current slick-active first" tabindex="0" style="width: 369px;" data-slick-index="4" aria-hidden="false">
-                                      <div class="block-images position-relative">
-                                        <div class="img-box">
-                                          <a href="{{ route('watchtrailer', ['id' => $movie->id]) }}" tabindex="0"></a>
-                                          <img src="{{ asset($movie->bannerimages->banner_image) }}" class="img-fluid  iqonic-lazy" alt="Fast &amp; Furious" data-srcset="{{ asset($movie->bannerimages->banner_image) }}" srcset="{{ asset($movie->bannerimages->banner_image) }}">
-                                        </div>
-                                        <!-- 2nd -->
-                                        <div class="card-description with-transition">
-                                          <div class="cart-content">
-                                            <div class="content-left">
-                                              <h5 class="iq-title">
-                                                <a href="{{ route('watchtrailer', ['id' => $movie->id]) }}" tabindex="0">
-                                                  {{$movie->title}} </a>
-                                              </h5>
-                                              <div class="movie-time d-flex align-items-center my-2">
-                                                <span class="movie-time-text font-normal">{{$movie->watch_hours}}</span>
-                                              </div>
-                                            </div>
-                                            <div class="watchlist">
-                                              <a class="watch-list-not" href="../pages/login.html" tabindex="0">
-                                                <span>
-                                                  <i class="mr-1 fas fa-plus"></i>
-                                                </span>
-                                                <span class="watchlist-label"> Watchlist </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </li> @endforeach </ul>
-                                </div>
-                                <div class="loader-wheel-container">
-                                  <input class="action" name="action" value="movie_cards" type="hidden">
-                                  <input class="current_page" name="current_page" value="0" type="hidden">
-                                  <input class="total_pages" name="total_pages" value="2" type="hidden">
-                                  <input class="loadmore_btn" name="loadmore_btn" value="movie-cards-load-btn-27" type="hidden">
-                                  <input class="loading_text" name="loading_text" value="Loading..." type="hidden">
-                                  <input class="query_args" name="query_args" value="{'post_type':'movie','post_status':'publish','paged':1,'posts_per_page':10,'suppress_filters':true,'fields':'ids','orderby':'publish_date','order':'DESC','meta_query':[{'key':'name_upcoming','value':'','compare':'=='}]}" type="hidden">
-                                  <input class="temp_settings" name="temp_settings" value="{'col':'','is_grid':false,'thumbnail_size':'full','is_badges_enable':true,'image_style':'portrait','is_ajax_enable':true,'lazy_load':' iqonic-lazy-load-images','show_title':false}" type="hidden">
-                                  <input class="posts_per_page" name="posts_per_page" value="10" type="hidden">
-                                  <input class="ajax_load" name="ajax_load" value="ajax_load" type="hidden">
-                                  <input class="is_ajax_enable" name="is_ajax_enable" value="1" type="hidden">
-                                </div>
-                              </div>
-                            </div>
+                            
                           </div>
                         </div>
                       </div>
@@ -403,73 +328,8 @@
                 </div>
               </div>
             </div>
-            <div class="elementor-section elementor-top-section elementor-element elementor-element-7316c40f elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="7316c40f" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
-              <div class="elementor-container elementor-column-gap-default">
-                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-539ec769 layouts-column-align-inherit layouts-section-position-none" data-id="539ec769" data-element_type="column">
-                  <div class="elementor-widget-wrap elementor-element-populated">
-                    <div class="elementor-section elementor-inner-section elementor-element elementor-element-60fb48ce elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="60fb48ce" data-element_type="section">
-                      <div class="elementor-container elementor-column-gap-default">
-                        <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-78a0d2dc layouts-column-align-inherit layouts-section-position-none" data-id="78a0d2dc" data-element_type="column">
-                          <div class="elementor-widget-wrap elementor-element-populated">
-                            <div class="hf-elementor-layout elementor-element elementor-element-355b90f elementor-widget elementor-widget-iqonic_movie_cards" data-id="355b90f" data-element_type="widget" data-widget_type="iqonic_movie_cards.default">
-                              <div class="elementor-widget-container">
-                                <div class="iq-card-wrapper iq-ajax-content movie_cards  iqonic-lazy-load-images" data-options="" data-can-beloaded="1">
-                                  <div class="iq-main-header d-flex align-items-center justify-content-between">
-                                    <h5 class="main-title"> Latest </h5>
-                                  </div>
-                                  <ul data-nav="true" data-items="6" data-items-laptop="3" data-items-tab="2" data-items-mobile="2" data-items-mobile-sm="2" data-autoplay="true" data-autoplay-speed="5000" data-loop="true" data-speed="300" class="iq-rtl-direction iq-arrow-2 favorites-slider list-grid list-inline row p-0 mb-0"> @foreach($movies as $movie) <li class="slide-items slick-slide slick-current slick-active first" tabindex="0" style="width: 369px;" data-slick-index="4" aria-hidden="false">
-                                      <div class="block-images position-relative">
-                                        <div class="img-box">
-                                          <a href="{{ route('watchtrailer', ['id' => $movie->id]) }}" tabindex="0"></a>
-                                          <img src="{{ asset($movie->bannerimages->banner_image) }}" class="img-fluid  iqonic-lazy" alt="Fast &amp; Furious" data-srcset="{{ asset($movie->bannerimages->banner_image) }}" srcset="{{ asset($movie->bannerimages->banner_image) }}">
-                                        </div>
-                                        <!-- 2nd -->
-                                        <div class="card-description with-transition">
-                                          <div class="cart-content">
-                                            <div class="content-left">
-                                              <h5 class="iq-title">
-                                                <a href="{{ route('watchtrailer', ['id' => $movie->id]) }}" tabindex="0">
-                                                  {{$movie->title}} </a>
-                                              </h5>
-                                              <div class="movie-time d-flex align-items-center my-2">
-                                                <span class="movie-time-text font-normal">{{$movie->watch_hours}}</span>
-                                              </div>
-                                            </div>
-                                            <div class="watchlist">
-                                              <a class="watch-list-not" href="../pages/login.html" tabindex="0">
-                                                <span>
-                                                  <i class="mr-1 fas fa-plus"></i>
-                                                </span>
-                                                <span class="watchlist-label"> Watchlist </span>
-                                              </a>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </li> @endforeach </ul>
-                                </div>
-                                <div class="loader-wheel-container">
-                                  <input class="action" name="action" value="movie_cards" type="hidden">
-                                  <input class="current_page" name="current_page" value="0" type="hidden">
-                                  <input class="total_pages" name="total_pages" value="1" type="hidden">
-                                  <input class="loadmore_btn" name="loadmore_btn" value="movie-cards-load-btn-14" type="hidden">
-                                  <input class="loading_text" name="loading_text" value="Loading..." type="hidden">
-                                  <input class="query_args" name="query_args" value="{'post_type':'movie','post_status':'publish','paged':1,'posts_per_page':10,'suppress_filters':true,'fields':'ids','order':'ASC','meta_query':[{'key':'name_upcoming','value':'\'yes\'','compare':'LIKE'}]}" type="hidden">
-                                  <input class="temp_settings" name="temp_settings" value="{'col':'','is_grid':false,'thumbnail_size':'full','is_badges_enable':true,'image_style':'portrait','is_ajax_enable':true,'lazy_load':' iqonic-lazy-load-images','show_title':false}" type="hidden">
-                                  <input class="posts_per_page" name="posts_per_page" value="9" type="hidden">
-                                  <input class="ajax_load" name="ajax_load" value="ajax_load" type="hidden">
-                                  <input class="is_ajax_enable" name="is_ajax_enable" value="1" type="hidden">
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            @endforeach
+           
           </div>
         </div>
         <footer class="footer" id="colophon">

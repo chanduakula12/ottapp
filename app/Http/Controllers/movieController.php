@@ -8,6 +8,7 @@ use App\Models\gener;
 use App\Models\movie_geners;
 use Razorpay\Api\Api;
 use App\Models\UserPurchase;    
+use App\Models\homerows;
 
 class movieController extends Controller
 {
@@ -19,9 +20,11 @@ class movieController extends Controller
         ->where('is_active',1)
         ->where('is_banner',1)
         ->get();  
-        $movies =  movie::with(['bannerimages','moviegeners.moviegenersnames'])
-        ->where('is_active',1)
-        ->get();
+        $movies =  homerows::where('is_active', 1)->with(['movieslist.movielistdatainfo'])->get();
+        // dd($movies);
+        // $movies =  movie::with(['bannerimages','moviegeners.moviegenersnames'])
+        // ->where('is_active',1)
+        // ->get();
         // dd($movies);
          return view('welcome',compact('bannerimages', 'movies'));
     }

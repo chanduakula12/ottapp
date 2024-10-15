@@ -9,5 +9,8 @@ class homerows extends Model
 {
     use HasFactory;
     protected $table = 'homerow';
+    public function movieslist(){
+        return $this->hasMany(homerowlist::class, 'movie_type_id', 'id');
+    }
    
 }
