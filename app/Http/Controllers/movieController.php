@@ -67,4 +67,6 @@ class movieController extends Controller
     public function transcationsDetails(){
         return view('transcations');
     }
+
+
 }
