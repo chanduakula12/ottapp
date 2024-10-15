@@ -11,13 +11,12 @@ use App\Models\bannerimage;
 use App\Models\movie;
 use App\Models\Tag;
 use App\Models\Ott;
-use App\Models\movie;
 use App\Models\movie_geners;
 
 class MovieController extends Controller
 {
     public function movies(){
-        $movies = movie::latest('id')->paginate(12);
+        $movies = movie::latest('id')->get();
         return view('admin.movies', compact('movies'));
     }
     public function movieadd(){
