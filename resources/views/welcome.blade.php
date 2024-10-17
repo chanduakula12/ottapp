@@ -341,7 +341,7 @@
                     <div class="hf-elementor-layout elementor-element elementor-element-7b44a17 elementor-widget elementor-widget-iqonic_logo" data-id="7b44a17" data-element_type="widget" data-widget_type="iqonic_logo.default">
                       <div class="elementor-widget-container">
                         <a class="navbar-brand widget-logo  " href="#">
-                          <img class="logo_image" src="../content/themes/streamit-theme/assets/images/logo.png" alt="iqonic">
+                          <img class="logo_image" src="../content/themes/streamit-theme/assets/images/ott-logo.jpeg" alt="iqonic">
                         </a>
                       </div>
                     </div>

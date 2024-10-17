@@ -3,7 +3,7 @@
               <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-93d0667 layouts-column-align-inherit layouts-section-position-none" data-id="93d0667" data-element_type="column">
                 <div class="elementor-widget-wrap elementor-element-populated">
                   <div class="hf-elementor-layout elementor-element elementor-element-9fa835f elementor-widget elementor-widget-iqonic_logo" data-id="9fa835f" data-element_type="widget" data-widget_type="iqonic_logo.default">
-                    <div class="elementor-widget-container"><a class="navbar-brand widget-logo  " href="{{url('/')}}"><img class="logo_image" src="../content/themes/streamit-theme/assets/images/logo.png" alt="iqonic"></a></div>
+                    <div class="elementor-widget-container"><a class="navbar-brand widget-logo  " href="{{url('/')}}"><img class="logo_image" src="./content/themes/streamit-theme/assets/images/ott-logo.jpeg" alt="iqonic" style="width: 50px; height: 50px;"></a></div>
                   </div>
                 </div>
               </div>

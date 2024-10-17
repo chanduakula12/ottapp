@@ -65,7 +65,9 @@ class movieController extends Controller
 
     }
     public function movies(){
-        dd('under construction');
+        $movies = movie::with(['bannerimages','moviegeners.moviegenersnames'])->get();
+        // dd($movies);
+        return view('movie',compact('movies'));
     }
     public function transcationsDetails(){
         return view('transcations');

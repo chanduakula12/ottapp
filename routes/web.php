@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::controller(movieController::class)->group(function(){
     Route::get('/',  'home')->name('home'); 
     Route::get('/buymovie/{id}',  'buymovie')->name('buymovie')->middleware('auth'); 
-    Route::get('/movies',  'movies')->name('movies')->middleware('auth'); 
+    Route::get('/movie',  'movies')->name('movie'); 
     Route::get('/transcations',  'transcationsDetails')->name('user.transcations')->middleware('auth'); 
 
     Route::get('/watchtrailer/{id}',  'watchtrailer')->name('watchtrailer')->middleware('auth');
@@ -29,6 +29,8 @@ Route::controller(movieController::class)->group(function(){
 
 
 Route::get('login', [bannerController::class, 'loginpage'])->name('loginpage');
+
+Route::get('register', [bannerController::class, 'register'])->name('register');
 
 Route::controller(paymentController::class)->group(function(){
     Route::post('response',  'response')->name('response')->middleware('auth'); 
@@ -46,7 +48,7 @@ Route::group(['prefix' => 'banner'], function () {
 Route::get('product',[RazorpayController::class,'index'])->middleware('auth');
 Route::post('razorpay-payment',[RazorpayController::class,'store'])->name('razorpay.payment.store')->middleware('auth');
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\movieController::class, 'home'])->name('home');
+Route::get('/home', [App\Http\Controllers\movieController::class, 'home'])->name('homeredirect');
 
 
 
