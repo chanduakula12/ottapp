@@ -124,46 +124,37 @@
 
                                                 <!-- Redirect Button with ID -->
                                                 @if (session('id'))
-                                                   <a href="{{ route('admin.movieaddmoredetails', ['id' => session('id')]) }}"><button class="btn btn-primary mt-3"></button>  Go to Details</button></a> 
+                                                   <a href="{{ route('admin.movieaddmoredetails', ['id' => $id]) }}"><button class="btn btn-primary mt-3"> Go to Details</button> </button></a> 
                                                       
                                                 @endif
                                             </div>
                                             @endif
                                     <div class="full price_table padding_infor_info">
-                                        <form method="post" action="{{route('admin.uploadmovie')}}"  method="POST" enctype="multipart/form-data">
+                                    <form method="post" action="{{ route('admin.uploadmovie', ['id' => $id]) }}" enctype="multipart/form-data">
                                             @csrf
                                             <!-- 2 column grid layout with text inputs for the first and last names -->
                                             <div class="row mb-4">
                                                 <div class="col-6">
                                                     <div data-mdb-input-init class="form-outline">
-                                                        <label class="form-label" for="form6Example2">Title</label>
-                                                        <input type="text" id="form6Example2" name="title" class="form-control" />
-                                                        <input type="hidden" id="movietype" name="movietype" value="basicmovies" class="form-control" />
+                                                        <label class="form-label" for="form6Example2">Price</label>
+                                                        <input type="text" id="form6Example2" name="price" class="form-control" />
+                                                        <input type="hidden" id="movietype" name="movietype" value="bannerdetails" class="form-control" />
 
                                                     </div>
                                                 </div>
 
-                                                 <!-- Text input -->
-                                                 <div class="col-6">
+                                                <div class="col-6">
+                                                                <!-- thumb nail -->
                                                     <div data-mdb-input-init class="form-outline mb-4">
-                                                        <label class="form-label" for="form6Example3">Duration</label>
-                                                        <input type="time" id="form6Example3" name="time" class="form-control" />
+                                                        <label class="form-label" for="form6Example4">Banner</label>
+                                                        <input type="file" id="form6Example4" name="banner" class="form-control" />
                                                     </div>
+                                                    <!-- thumb nail -->
                                                 </div>
-                                            </div>
-                                           
-                                            <!-- Text input -->
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                                <label class="form-label" for="form6Example4">Description</label>
-                                                <input type="text" id="form6Example4" name="description" class="form-control" />
-                                            </div>
-                                            <!-- Email input -->
-                                            <!-- thumb nail -->
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                                <label class="form-label" for="form6Example4">Thumbnail</label>
-                                                <input type="file" id="form6Example4" name="thumbnail" class="form-control" />
-                                            </div>
-                                            <!-- thumb nail -->
+
+                                                
+                                        
+                                       
                                             <!-- Checkbox -->
 
                                             <div>

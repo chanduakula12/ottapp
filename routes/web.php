@@ -60,6 +60,9 @@ Route::post('/admin-movie-upload-file-post', [AdminMovieController::class, 'movi
 
 Route::get('/admin-add-movie', [AdminMovieController::class, 'movieadd'])->name('admin.addmovie');
 Route::post('/admin-upload-movie', [AdminMovieController::class, 'uploadmovie'])->name('admin.uploadmovie');
+Route::get('/admin-addmoredetails', [AdminMovieController::class, 'movieaddmoredetails'])->name('admin.movieaddmoredetails');
+Route::get('/admin-bannerdetailsmore', [AdminMovieController::class, 'bannerdetailsmore'])->name('admin.bannerdetailsmore');
+Route::get('/admin-movietrailers', [AdminMovieController::class, 'movietrailers'])->name('admin.movietrailers');
 
 //add movies 
 Route::get('/admin-movies-order', [AdminMovieController::class, 'moviesorder'])->name('admin.moviesorder');

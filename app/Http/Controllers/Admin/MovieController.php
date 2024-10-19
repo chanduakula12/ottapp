@@ -11,6 +11,7 @@ use App\Models\bannerimage;
 use App\Models\movie;
 use App\Models\Tag;
 use App\Models\Ott;
+use App\Models\Trailer;
 use App\Models\movie_geners;
 
 class MovieController extends Controller
@@ -24,39 +25,146 @@ class MovieController extends Controller
         $otts = Ott::where('isactive', 1)->get();
         return view('admin.addmovie', compact('geners', 'otts'));
     }
-    function uploadmovie(Request $request) {
-        $movie = new movie;
-        $movie->title = $request->title;
-        $movie->description = $request->description;
-        $movie->price = $request->price;
-        $movie->is_banner = 0;
-        $movie->tickets = $request->tickets ?? 0;
-        $movie->buy_now = $request->buy;
-        $movie->offical_website = $request->officalsite ?? '';
-        $movie->watch_hours = $request->time ?? '';
-        $movie->is_active = 0;
-        $movie->save();
-        $path = 'data/files/' . $movie->id;
-        $image = $request->title . time() . '_' . $request->file('movieimage')->getClientOriginalName();
-        if ($request->file('movieimage')) {
-            $request->file('movieimage')->move(public_path($path), $image);
-        }
-        $movie->thumbnail = $path . '/' . $image;
-        $movie->save();
-        foreach($request->Tagname as $tag){
-            $newTag = new Tag;
-            $newTag->movie_id = $movie->id;
-            $newTag->tag = $tag;
-            $newTag->save();
-        }
-        foreach($request->geners as $gener){
-            $GenerInfo = new movie_geners;
-            $GenerInfo->movie_id = $movie->id;
-            $GenerInfo->gener_id = $gener;
-            $GenerInfo->save();
-        }
-        return redirect()->route('admin.movies')->with('message', 'Movie Details Updated Successfully');
+
+    public function movieaddmoredetails(Request $request){
+
+        $id = $request->id;
+    
+        return view('admin.addmoredetails', compact('id'));
     }
+    public function bannerdetailsmore(Request $request){
+        $id = $request->id;
+    
+        return view('admin.bannerdetailsmore', compact('id'));
+    }
+
+    public function moviebannerdetails(Request $request){
+        $id = $request->id;
+        return view('admin.addmoviebannerdetails', compact('id'));
+        
+    }
+    public function movietrailers(Request $request){
+        $id = $request->id;
+        return view('admin.addmovietrailers', compact('id'));
+    }
+    function uploadmovie(Request $request) {
+
+        $addmovietype = $request->movietype;
+        $id = $request->id;
+        switch ($addmovietype) {
+            case 'basicmovies':
+                $movie = new movie;
+                $movie->title = $request->title;
+                $movie->description = $request->description;
+                $movie->is_banner = 0;
+                $movie->watch_hours = $request->time ?? '';
+                $movie->save();
+
+
+                $movie = movie::findOrFail($movie->id);
+
+                if ($request->hasFile('thumbnail')) {
+                    $path = 'data/files/' . $movie->id;
+                    $imageName = $movie->title . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
+                    $request->file('thumbnail')->move(public_path($path), $imageName);
+                    $movie->thumbnail = $path . '/' . $imageName;
+                    $movie->save();
+                    
+                    // Redirect with success message
+
+                if($movie){
+                    return redirect()->back()->with('success', 'Data saved successfully!')->with('id', $movie->id);
+                }
+            }
+
+            break;
+
+            case 'bannerdetails':
+              
+                // dd($id);
+                $details = movie::where('id', $id)->update([
+                    'price' => $request->price,
+                ]);
+                
+
+                if ($request->hasFile('banner')) {
+                    $path = 'data/files/' . $id;
+                    $imageName = time() . '_' . $request->file('banner')->getClientOriginalName();
+                    $request->file('banner')->move(public_path($path), $imageName);
+                    $addbanner = new bannerimage;
+                    $addbanner->banner_image = $path . '/' . $imageName;
+                    $addbanner->movie_id = $id;
+                    $addbanner->save();
+                    
+                    // Redirect with success message
+
+                if($addbanner){
+                    return redirect()->back()->with('success', 'Data saved successfully!')->with('id', $id);
+                }
+            }
+            return redirect()->back()->with('success', 'Data saved successfully!')->with('id', $id);
+
+                break;
+
+                case 'trailerdetails':
+                    //  dd($id);
+                    if ($request->hasFile('trailer')) {
+                        $path = 'trailer/' . $id;
+                        $video = time() . '_' . $request->file('trailer')->getClientOriginalName();
+                        $request->file('trailer')->move(public_path($path), $video);
+                        $adtrailer = new Trailer;
+                        $adtrailer->trailer_name  = $path . '/' . $video;
+                        $adtrailer->movie_id = $id;
+                        $adtrailer->save();
+                        
+                        // Redirect with success message
+    
+                    if($adtrailer){
+                        return redirect()->back()->with('success', 'Data saved successfully!')->with('id', $id);
+                    }
+                }
+                return redirect()->back()->with('success', 'Data saved successfully!')->with('id', $id);
+                       
+                    break;
+        
+
+
+    //     $movie = new movie;
+    //     $movie->title = $request->title;
+    //     $movie->description = $request->description;
+    //     $movie->price = $request->price;
+    //     $movie->is_banner = 0;
+    //     $movie->tickets = $request->tickets ?? 0;
+    //     $movie->buy_now = $request->buy;
+    //     $movie->offical_website = $request->officalsite ?? '';
+    //     $movie->watch_hours = $request->time ?? '';
+    //     $movie->is_active = 0;
+    //     $movie->save();
+    //     $path = 'data/files/' . $movie->id;
+    //     $image = $request->title . time() . '_' . $request->file('movieimage')->getClientOriginalName();
+    //     if ($request->file('movieimage')) {
+    //         $request->file('movieimage')->move(public_path($path), $image);
+    //     }
+    //     $movie->thumbnail = $path . '/' . $image;
+    //     $movie->save();
+    //     foreach($request->Tagname as $tag){
+    //         $newTag = new Tag;
+    //         $newTag->movie_id = $movie->id;
+    //         $newTag->tag = $tag;
+    //         $newTag->save();
+    //     }
+    //     foreach($request->geners as $gener){
+    //         $GenerInfo = new movie_geners;
+    //         $GenerInfo->movie_id = $movie->id;
+    //         $GenerInfo->gener_id = $gener;
+    //         $GenerInfo->save();
+    //     }
+    //     return redirect()->route('admin.movies')->with('message', 'Movie Details Updated Successfully');
+    // }
+
+                
+            }
+}
     public function moviesupload(Request $request){
         $id = $request->id;
         return view('admin.addmoviefile');
