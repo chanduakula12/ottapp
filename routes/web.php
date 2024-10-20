@@ -63,6 +63,7 @@ Route::post('/admin-upload-movie', [AdminMovieController::class, 'uploadmovie'])
 Route::get('/admin-addmoredetails', [AdminMovieController::class, 'movieaddmoredetails'])->name('admin.movieaddmoredetails');
 Route::get('/admin-bannerdetailsmore', [AdminMovieController::class, 'bannerdetailsmore'])->name('admin.bannerdetailsmore');
 Route::get('/admin-movietrailers', [AdminMovieController::class, 'movietrailers'])->name('admin.movietrailers');
+Route::get('/admin.addtags', [AdminMovieController::class, 'addtags'])->name('admin.addtags');
 
 //add movies 
 Route::get('/admin-movies-order', [AdminMovieController::class, 'moviesorder'])->name('admin.moviesorder');

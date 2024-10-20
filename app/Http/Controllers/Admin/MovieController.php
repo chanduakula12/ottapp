@@ -47,6 +47,10 @@ class MovieController extends Controller
         $id = $request->id;
         return view('admin.addmovietrailers', compact('id'));
     }
+    public function addtags(Request $request){
+        $id = $request->id;
+        return view('admin.addtags', compact('id'));
+    }
     function uploadmovie(Request $request) {
 
         $addmovietype = $request->movietype;
@@ -126,7 +130,22 @@ class MovieController extends Controller
                 return redirect()->back()->with('success', 'Data saved successfully!')->with('id', $id);
                        
                     break;
-        
+                    case 'addtags':
+                        // dd($id);
+                        foreach($request->Tagname as $tag){
+                                    $newTag = new Tag;
+                                    $newTag->movie_id = $id;
+                                    $newTag->tag = $tag;
+                                    $newTag->save();
+                                }
+
+                                if($newTag){
+                                    return redirect()->back()->with('success', 'tags saved successfully!')->with('id', $id);
+                                }
+                            
+                        break;
+                    default:
+                    return redirect()->back()->with('error', 'Someting went wrong')->with('id', $id);   
 
 
     //     $movie = new movie;

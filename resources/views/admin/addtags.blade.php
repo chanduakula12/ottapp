@@ -124,50 +124,61 @@
 
                                                 <!-- Redirect Button with ID -->
                                                 @if (session('id'))
-                                                   <a href="{{ route('admin.movieaddmoredetails', ['id' => session('id')]) }}"><button class="btn btn-primary mt-3">Go to Details</button>  </button></a> 
+                                                   <a href="{{ route('admin.movieaddmoredetails', ['id' => session('id')]) }}"><button class="btn btn-primary mt-3">Go to Details</button> </button></a> 
                                                       
                                                 @endif
                                             </div>
                                             @endif
                                     <div class="full price_table padding_infor_info">
-                                        <form method="post" action="{{route('admin.uploadmovie')}}"  method="POST" enctype="multipart/form-data">
+                                        <form method="post" action="{{route('admin.uploadmovie', ['id' => $id]) }}"  method="POST">
                                             @csrf
                                             <!-- 2 column grid layout with text inputs for the first and last names -->
                                             <div class="row mb-4">
-                                                <div class="col-6">
-                                                    <div data-mdb-input-init class="form-outline">
-                                                        <label class="form-label" for="form6Example2">Title</label>
-                                                        <input type="text" id="form6Example2" name="title" class="form-control" />
-                                                        <input type="hidden" id="movietype" name="movietype" value="basicmovies" class="form-control" />
+                                               <!-- tags -->
+                                                <label class="form-label" for="form6Example4">Tags</label>
+
+                                                <div class="panel panel-default">
+
+                                                    <div class="panel-body">
+
+                                                        <div id="education_fields">
+
+                                                        </div>
+                                                        <div class="col-sm-3 nopadding">
+                                                            <div class="form-group">
+                                                            <input type="hidden" id="movietype" name="movietype" value="addtags" class="form-control" />
+                                                                <input type="text" class="form-control" id="Tagname" name="Tagname[]" value="" placeholder="Tags">
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-sm-3 nopadding">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+
+                                                                    <div class="input-group-btn">
+                                                                        <button class="btn btn-success" type="button" onclick="education_fields();"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="clear"></div>
 
                                                     </div>
-                                                </div>
 
-                                                 <!-- Text input -->
-                                                 <div class="col-6">
-                                                    <div data-mdb-input-init class="form-outline mb-4">
-                                                        <label class="form-label" for="form6Example3">Duration</label>
-                                                        <input type="time" id="form6Example3" name="time" class="form-control" />
-                                                    </div>
+
+
+
+
                                                 </div>
+                                                <!--end tags -->
                                             </div>
                                            
-                                            <!-- Text input -->
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                                <label class="form-label" for="form6Example4">Description</label>
-                                                <input type="text" id="form6Example4" name="description" class="form-control" />
-                                            </div>
-                                            <!-- Email input -->
-                                            <!-- thumb nail -->
-                                            <div data-mdb-input-init class="form-outline mb-4">
-                                                <label class="form-label" for="form6Example4">Thumbnail</label>
-                                                <input type="file" id="form6Example4" name="thumbnail" class="form-control" />
-                                            </div>
-                                            <!-- thumb nail -->
+                                         
                                             <!-- Checkbox -->
 
                                             <div>
-                                                <input type="submit" id="submit" name="submit" class="form-control" value="Upload" />
+                                                <input type="submit" id="submit" name="submit" class="form-control" value="Submit" />
                                             </div>
                                         </form>
                                     </div>

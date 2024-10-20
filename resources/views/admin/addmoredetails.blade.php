@@ -145,9 +145,9 @@
                                                     <div class="col-lg-4 mb-4">
                                                         <div class="card" style="background-color: #eaf7ff;">
                                                             <div class="card-body">
-                                                                <h5 class="card-title">Details</h5>
+                                                                <h5 class="card-title">Tags</h5>
                                                                 <p class="card-text">
-                                                                <a href=""><button class="btn btn-primary">ADD</button></a>
+                                                                <a href="{{  route('admin.addtags',['id' => $id])  }}"><button class="btn btn-primary">ADD Tags</button></a>
                                                                 </p>
                                                             </div>
                                                         </div>
