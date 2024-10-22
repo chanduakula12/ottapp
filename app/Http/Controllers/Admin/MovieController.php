@@ -71,12 +71,15 @@ class MovieController extends Controller
                     $path = 'data/files/' . $movie->id;
                     $imageName = $movie->title . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
                     $request->file('thumbnail')->move(public_path($path), $imageName);
-                    $movie->thumbnail = $path . '/' . $imageName;
-                    $movie->save();
+                    $addbanner = new bannerimage;
+                    $addbanner->banner_image = $path . '/' . $imageName;
+                    $addbanner->movie_id = $movie->id;
+                    $addbanner->save();
+                   
                     
                     // Redirect with success message
 
-                if($movie){
+                if($addbanner){
                     return redirect()->back()->with('success', 'Data saved successfully!')->with('id', $movie->id);
                 }
             }

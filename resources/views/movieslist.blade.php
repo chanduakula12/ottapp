@@ -1,12 +1,13 @@
 
-@foreach($movie->movieslist as $moviedata) 
+@foreach($movie->movieslist as $moviedata)
+
 
 
 <li class="slide-items slick-slide slick-current slick-active first" tabindex="0" style="width: 369px;" data-slick-index="4" aria-hidden="false">
                                       <div class="block-images position-relative">
                                         <div class="img-box">
                                           <a href="{{ route('watchtrailer', ['id' => $moviedata->movielistdatainfo->id]) }}" tabindex="0"></a>
-                                          <img src="" class="img-fluid  iqonic-lazy" alt="Fast &amp; Furious" data-srcset="" srcset="{{ asset($moviedata->movielistdatainfo->bannerimages->banner_image) }}">
+                                          <img src="" class="img-fluid  iqonic-lazy" alt="Fast &amp; Furious" data-srcset="" srcset="{{ asset($moviedata->movielistdatainfo->bannerimages->banner_image)  }} ">
                                         </div>
                                         <!-- 2nd -->
                                         <div class="card-description with-transition">
